@@ -8,6 +8,9 @@ class NotesModel {
   addNote(note) {
     this.notes.push(note);
   }
+  reset(note) {
+    this.notes = [];
+  }
 }
 
 module.exports = NotesModel;

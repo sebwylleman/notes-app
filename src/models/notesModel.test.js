@@ -15,4 +15,9 @@ describe('Notes', () => {
     myNotes.addNote('Go to the gym');
     expect(myNotes.getNotes()).toEqual(['Buy Milk', 'Go to the gym']);
   });
+  it('resets the notes array to its initial state of being empty', () => {
+    myNotes.addNote('Buy Milk');
+    myNotes.reset();
+    expect(myNotes.getNotes()).toEqual([]);
+  });
 });
