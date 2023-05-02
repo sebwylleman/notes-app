@@ -2,7 +2,9 @@ class NotesModel {
   constructor() {
     this.notes = []; // initialises notes to be empty
   }
-  getNotes() {}
+  getNotes() {
+    return this.notes;
+  }
 }
 
 module.exports = NotesModel;
