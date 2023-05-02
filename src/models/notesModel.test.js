@@ -1,7 +1,7 @@
 const NotesModel = require('./notesModel');
 
 describe('Notes', () => {
-  const myNotes;
+  let myNotes;
 
   beforeEach(() => {
     myNotes = new NotesModel();
