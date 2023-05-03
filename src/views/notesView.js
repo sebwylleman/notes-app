@@ -4,7 +4,7 @@ class NotesView {
   constructor(NotesModel) {
     this.NotesModel = NotesModel;
   }
-  displayNotes(notes) {
+  displayNotes() {
     // fill in
   }
 }
