@@ -7,11 +7,12 @@ const NotesModel = require('../models/notesModel');
 const path = require('path');
 
 describe('Notes View', () => {
-  it('Displays two notes', () => {
+  beforeEach(() => {
     const relativePath = path.join(__dirname, '..', '..', 'index.html');
     document.body.innerHTML = fs.readFileSync(relativePath);
-    notesView = new NotesView();
+  });
 
+  it('Displays two notes', () => {
     const model = new NotesModel();
     const view = new NotesView(model);
     model.addNote('Go to the gym');
@@ -19,8 +20,8 @@ describe('Notes View', () => {
 
     view.displayNotes();
     const notes = document.querySelectorAll('div.note');
-    expect(notes.length).toBe(2);
-    expect(notes[0].innerText).toBe('Go to the gym');
-    expect(notes[1].innerText).toBe('Prepare lunch');
+    expect(notes.length).toEqual(2);
+    expect(notes[0].innerText).toEqual('Go to the gym');
+    expect(notes[1].innerText).toEqual('Prepare lunch');
   });
 });
