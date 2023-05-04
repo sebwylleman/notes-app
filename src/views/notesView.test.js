@@ -41,7 +41,14 @@ describe('Notes View', () => {
     );
   });
 
-  xit('clears previous notes', () => {
-    // fill in
+  it('clears previous notes before displaying', () => {
+    model.addNote('Go to the gym');
+    model.addNote('Prepare lunch');
+
+    view.displayNotes();
+    view.displayNotes();
+
+    const notes = document.querySelectorAll('div.note');
+    expect(notes.length).toEqual(2);
   });
 });
