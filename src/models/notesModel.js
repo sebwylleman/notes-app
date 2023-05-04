@@ -8,7 +8,7 @@ class NotesModel {
   addNote(note) {
     this.notes.push(note);
   }
-  reset(note) {
+  reset() {
     this.notes = [];
   }
 }

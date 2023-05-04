@@ -13,6 +13,13 @@ class NotesView {
   }
 
   displayNotes() {
+    // clearing the old notes
+    const notesToDel = document.querySelectorAll('div.note');
+    notesToDel.forEach((note) => {
+      note.remove();
+    });
+
+    // displaying only newly added notes
     const notes = this.notesModel.getNotes();
 
     notes.forEach((note) => {
