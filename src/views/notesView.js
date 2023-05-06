@@ -1,8 +1,10 @@
 const NotesModel = require('../models/notesModel');
+const NotesClient = require('../api/notesClient');
 
 class NotesView {
-  constructor(notesModel) {
+  constructor(notesModel, notesClient) {
     this.notesModel = notesModel;
+    this.notesClient = notesClient;
     this.mainContainer = document.querySelector('#main-container');
     this.addNoteBtn = document.querySelector('#add-note-btn');
 
@@ -25,7 +27,14 @@ class NotesView {
 
     notes.forEach((note) => {
       const noteElement = document.createElement('div');
-      noteElement.innerText = note;
+
+      // Check if the note is an object with 'text' property
+      if (note.text) {
+        noteElement.innerText = note.text;
+      } else {
+        noteElement.innerText = note;
+      }
+
       noteElement.className = 'note';
       this.mainContainer.append(noteElement);
     });
@@ -39,6 +48,13 @@ class NotesView {
   clearInput() {
     const noteInput = document.querySelector('#add-note-input');
     noteInput.value = '';
+  }
+
+  displayNotesFromApi() {
+    this.notesClient.loadNotes((data) => {
+      this.notesModel.setNotes(data);
+      this.displayNotes();
+    });
   }
 }
 
