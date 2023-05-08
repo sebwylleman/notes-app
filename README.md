@@ -1,2 +1,3 @@
 # notes-app
-Makers Academy Project
+
+Makers Academy Project using API calls
